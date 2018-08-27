@@ -3,6 +3,8 @@ import {View} from 'react-native';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {StackNavigator, TabNavigator} from 'react-navigation';
+import {DeckList} from './components/deckList'
+import NewDeck from './components/newDeck'
 
 
 const Tabs = TabNavigator({
@@ -11,6 +13,11 @@ const Tabs = TabNavigator({
             navigationOptions: {
                 tabBarLabel: 'All Decks'
             },
+        NewDeck: {
+           screen: NewDeck,
+           navigationOptions: {
+               tabBarLabel: 'New Deck',
+           },
         },
 });
 
@@ -23,10 +30,6 @@ const AppNavigator = StackNavigator({
 
 
 export default class Index extends React.Component {
-
-
-
-
 
     render() {
         return <Provider store={createStore(reducer)}>

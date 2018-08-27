@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Index from './components/index'
 
 export default class App extends React.Component {
   render() {
@@ -8,7 +9,7 @@ export default class App extends React.Component {
         );
     }
   }
-}
+
 
 const styles = StyleSheet.create({
   container: {
