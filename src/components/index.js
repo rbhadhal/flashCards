@@ -6,6 +6,8 @@ import {createStackNavigator, createBottomTabNavigator} from 'react-navigation';
 import DeckList from './deckList'
 import NewDeck from './newDeck'
 import IndividualDeck from './IndividualDeck'
+import Question from './question'
+import Quiz from './quiz'
 import reducer from '../reducers'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 
@@ -59,6 +61,18 @@ const AppNavigator = createStackNavigator({
   },
 IndividualDeck: {
   screen: IndividualDeck,
+  navigationOptions: {
+      headerTintColor: '#000',
+  },
+},
+Question: {
+  screen: Question,
+  navigationOptions: {
+      headerTintColor: '#000',
+  },
+},
+Quiz: {
+  screen: Quiz,
   navigationOptions: {
       headerTintColor: '#000',
   },

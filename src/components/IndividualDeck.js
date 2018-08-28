@@ -18,7 +18,7 @@ class IndividualDeck extends React.Component {
 
                 <TouchableOpacity
                     onPress={() => {
-                        this.props.navigation.navigate('NewQuestion', {
+                        this.props.navigation.navigate('Question', {
                             title,
                             questions,
                         });

@@ -30,7 +30,9 @@ class DeckList extends React.Component {
                 <FlatList
                     data={Object.values(this.props.decks).sort((a, b) => a.title > b.title)}
                     renderItem={this.renderItem}
-                    keyExtractor={(item, index) => index}/>
+                    //keyExtractor = {(item, Object.keys(this.props.decks)) => index}/>
+                    keyExtractor={(item, index) => `list-item-${index}`}/>
+
             </View>
         );
     }
