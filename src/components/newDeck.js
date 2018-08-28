@@ -17,14 +17,12 @@ class AddDeck extends React.Component {
 
         if (!entry.text) {
             Alert.alert(
-                'Mandatory',
-                'Deck Name cannot be empty'
+                'Deck name cannot be empty'
             );
         } else {
             if (decks[entry.text]) {
                 Alert.alert(
-                    'Error!',
-                    'Deck Already exists'
+                    'Deck already exists'
                 );
             } else {
                 const newDeck = {[entry.text]: {title: entry.text, questions: []}};
@@ -33,7 +31,7 @@ class AddDeck extends React.Component {
                 createDeck(newDeck);
 
                 Alert.alert(
-                    'Successful', 'Deck Added',
+                   'Deck Added',
                     [
                         {text: 'OK', onPress: () => this.props.navigation.navigate('IndividualDeck', {
                             title: entry.text,

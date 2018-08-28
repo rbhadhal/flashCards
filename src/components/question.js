@@ -16,11 +16,11 @@ class Question extends React.Component {
         const {title, questions} = this.props.navigation.state.params;
 
         if (question === '') {
-            Alert.alert('Mandatory', 'Question cannot be empty');
+            Alert.alert('Important', 'Question cannot be empty');
             return;
         }
         if (answer === '') {
-            Alert.alert('Mandatory', 'Answer cannot be empty');
+            Alert.alert('Important', 'Answer cannot be empty');
             return;
         }
 
@@ -33,7 +33,7 @@ class Question extends React.Component {
             deckName: title
         });
 
-        Alert.alert('Successful', 'Question Added Successfully',
+        Alert.alert('Successful', 'Question added successfully',
             [
                 {
                     text: 'OK', onPress: () =>
