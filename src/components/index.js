@@ -10,6 +10,7 @@ import Question from './question'
 import Quiz from './quiz'
 import reducer from '../reducers'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
+import { setNotification } from '../utils/notificationsAPI'
 
 
 
@@ -17,22 +18,18 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons'
 
 const TabNavigatorConfig = {
       navigationOptions: {
-        header: null
-          },
+        header: null},
       tabBarOptions: {
         activeTintColor: 'white',
         style: {
           height: 56,
           backgroundColor: 'white',
-          shadowColor: "rgba(0, 0, 0, 0.24)",
+          shadowColor: 'rgba(0, 0, 0, 0.24)',
           shadowOffset: {
             width: 0,
-            height: 3
-            },
+            height: 3},
         shadowRadius: 6,
-        shadowOpacity: 1
-        }
-        }
+        shadowOpacity: 1}}
         };
 
 const RouteConfigs = {
@@ -44,7 +41,7 @@ const RouteConfigs = {
       NewDeck: {
         screen: NewDeck,
         navigationOptions: {
-          tabBarLabel: "Add Entry",
+          tabBarLabel: "Add New Deck",
           tabBarIcon: ({ tintColor }) => <FontAwesome name='plus-square' size={30} color={tintColor} />}},
 
 
@@ -82,6 +79,10 @@ Quiz: {
 
 
 export default class Index extends React.Component {
+
+  componentDidMount() {
+        setNotification();
+    }
 
     render() {
         return <Provider store={createStore(reducer)}>
