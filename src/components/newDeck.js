@@ -1,8 +1,8 @@
 import React from 'react';
 import {Alert, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
-import {createDeck} from '../../util/storageApi';
+import {createDeck} from '../utils/storageAPI';
 import {connect} from 'react-redux';
-import {addDeck} from '../../actions/index';
+import {addDeck} from '../actions/index';
 
 class AddDeck extends React.Component {
     componentWillMount() {

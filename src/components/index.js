@@ -2,31 +2,69 @@ import React from 'react';
 import {View} from 'react-native';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import {StackNavigator, TabNavigator} from 'react-navigation';
-import {DeckList} from './components/deckList'
-import NewDeck from './components/newDeck'
+import {createStackNavigator, createBottomTabNavigator} from 'react-navigation';
+import DeckList from './deckList'
+import NewDeck from './newDeck'
+import IndividualDeck from './IndividualDeck'
+import reducer from '../reducers'
+import { FontAwesome, Ionicons } from '@expo/vector-icons'
 
 
-const Tabs = TabNavigator({
-        DeckList: {
-            screen: DeckList,
-            navigationOptions: {
-                tabBarLabel: 'All Decks'
+
+
+
+const TabNavigatorConfig = {
+      navigationOptions: {
+        header: null
+          },
+      tabBarOptions: {
+        activeTintColor: 'white',
+        style: {
+          height: 56,
+          backgroundColor: 'white',
+          shadowColor: "rgba(0, 0, 0, 0.24)",
+          shadowOffset: {
+            width: 0,
+            height: 3
             },
-        NewDeck: {
-           screen: NewDeck,
-           navigationOptions: {
-               tabBarLabel: 'New Deck',
-           },
-        },
-});
+        shadowRadius: 6,
+        shadowOpacity: 1
+        }
+        }
+        };
 
-const AppNavigator = StackNavigator({
+const RouteConfigs = {
+      DeckList: {
+        screen: DeckList,
+        navigationOptions: {
+          tabBarLabel: "All Decks",
+          tabBarIcon: ({ tintColor }) => <Ionicons name='ios-bookmarks' size={30} color={tintColor} />}},
+      NewDeck: {
+        screen: NewDeck,
+        navigationOptions: {
+          tabBarLabel: "Add Entry",
+          tabBarIcon: ({ tintColor }) => <FontAwesome name='plus-square' size={30} color={tintColor} />}},
+
+
+  };
+
+export const Tabs = createBottomTabNavigator(RouteConfigs, TabNavigatorConfig)
+
+const AppNavigator = createStackNavigator({
   Home: {
-      screen: Tabs,
-      navigationOptions: {title: 'Home'},
-    },
-});
+    screen: Tabs,
+    navigationOptions: {
+      header: null
+    }
+  },
+IndividualDeck: {
+  screen: IndividualDeck,
+  navigationOptions: {
+      headerTintColor: '#000',
+  },
+},
+
+})
 
 
 export default class Index extends React.Component {

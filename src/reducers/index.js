@@ -1,4 +1,4 @@
-import * as Types from '../actions/actionTypes';
+import * as Types from '../actions';
 
 function decks(state = {}, action) {
     switch (action.type) {

@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, TouchableOpacity, View, Dimensions, FlatList} from 'react-native';
 import {connect} from 'react-redux';
 import {getDecks} from '../actions/index';
-import {fetchDecks} from '../util/storageApi';
+import {fetchDecks} from '../utils/storageAPI';
 import Deck from './deck';
 
 class DeckList extends React.Component {
