@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Alert, StyleSheet, Text, TextInput, TouchableOpacity, View, KeyboardAvoidingView } from 'react-native';
 import {addQuestion} from '../actions';
 import {connect} from 'react-redux';
 import {addQuestionForDeck} from '../utils/storageAPI';
@@ -46,7 +46,7 @@ class Question extends React.Component {
         const {question, answer} = this.state;
 
         return (
-            <View style={style.container}>
+            <KeyboardAvoidingView style={style.container}>
                 <Text>Question is </Text>
                 <TextInput
                     defaultValue="Question"
@@ -66,7 +66,7 @@ class Question extends React.Component {
                     <Text style={style.submitText}>Submit</Text>
                 </TouchableOpacity>
 
-            </View>
+            </KeyboardAvoidingView>
         );
     }
 }

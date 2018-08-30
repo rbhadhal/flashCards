@@ -1,6 +1,12 @@
-This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
+# Udacity Flash Cards
 
-This application is the final project for the Udacity React course. It has been tested on and primarily developed for iOS.
+Final project using React Native
+
+## Tested platform: iOS
+
+It has been tested on and primarily developed for iOS.
+
+## Getting Started
 
 To install enter 'yarn install' or 'npm install' and to run 'yarn start' or 'npm start'
 

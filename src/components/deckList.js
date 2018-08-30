@@ -3,7 +3,7 @@ import {StyleSheet, TouchableOpacity, View, Dimensions, FlatList} from 'react-na
 import {connect} from 'react-redux';
 import {getDecks} from '../actions/index';
 import {fetchDecks} from '../utils/storageAPI';
-import Deck from './deck';
+import { Deck } from './deck';
 
 class DeckList extends React.Component {
 

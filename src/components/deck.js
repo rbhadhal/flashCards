@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 
-export default class Deck extends React.Component {
-    render() {
-        const {title, questions} = this.props;
+export function Deck(props) {
+
+        const {title, questions} = props;
 
         return <View style={styles.deck}>
             <View style={{justifyContent: 'center', alignItems: 'center'}}>
@@ -14,7 +14,7 @@ export default class Deck extends React.Component {
             </View>
         </View>
     }
-}
+
 
 const styles = StyleSheet.create({
     deck: {

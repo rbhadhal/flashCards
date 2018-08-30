@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import { black, white } from '../utils/colours'
 
 class IndividualDeck extends React.Component {
 
@@ -10,9 +11,9 @@ class IndividualDeck extends React.Component {
 
         return (
             <View style={styles.container}>
-                <View style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-                    <Text style={{fontSize: 36}}>{title}</Text>
-                    <Text style={{fontSize: 22, marginTop: 12}}>{questions.length} cards
+                <View style={styles.infoContainer}>
+                    <Text style={styles.deckTitle}>{title}</Text>
+                    <Text style={styles.questionLength}>{questions.length} cards
                     </Text>
                 </View>
 
@@ -49,29 +50,43 @@ const styles = StyleSheet.create({
         paddingTop: 20,
     },
     addCard: {
-        backgroundColor: '#fff',
+        backgroundColor: white,
         margin: 24,
         padding: 10,
         borderRadius: 7,
         height: 45,
     },
     startQuiz: {
-        backgroundColor: '#000',
+        backgroundColor: black,
         margin: 24,
         padding: 10,
         height: 45,
         borderRadius: 2,
     },
     addCardTitle: {
-        color: '#000',
+        color: black,
         fontSize: 22,
         textAlign: 'center',
     },
     startQuizTitle: {
-        color: '#fff',
+        color: white,
         fontSize: 22,
         textAlign: 'center',
-    }
+    },
+    infoContainer: {
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    deckTitle: {
+      fontSize: 36,
+      color: black,
+    },
+    questionLength: {
+      fontSize: 22,
+      marginTop: 12,
+      color: black,
+    },
 });
 
 function mapStateToProps(state) {

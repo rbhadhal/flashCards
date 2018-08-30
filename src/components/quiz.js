@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
 import { NavigationActions } from 'react-navigation'
+import { clearLocalNotification } from '../utils/notificationsAPI'
 
 export default class Quiz extends React.Component {
 
@@ -20,6 +21,7 @@ export default class Quiz extends React.Component {
     };
 
     backToDeck = () => {
+        clearLocalNotification();
         this.props.navigation.goBack();
 
     }
@@ -92,27 +94,14 @@ export default class Quiz extends React.Component {
                     <View style={styles.container}>
                         <Text>Score: {correctAnswers}</Text>
 
-                        <View style={{alignItems: 'center', justifyContent: 'space-around', flex: 2}}>
+                        <View style={{alignItems: 'center', justifyContent: 'space-around', flex: 4}}>
                             <View style={styles.container}>
 
-                                <TouchableOpacity onPress={this.startQuiz}>
-                                    <Text style={{
-                                        backgroundColor: '#70dd2f',
-                                        justifyContent: 'center',
-                                        height: 30,
-                                        textAlign: 'center',
-                                        width: 200
-                                    }}>Start Quiz</Text>
+                                <TouchableOpacity onPress={this.startQuiz} style= {styles.correct}>
+                                    <Text style={styles.correctText}>Start Quiz</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={this.backToDeck}>
-                                    <Text style={{
-                                        backgroundColor: '#ff463f',
-                                        justifyContent: 'center',
-                                        height: 30,
-                                        textAlign: 'center',
-                                        width: 200,
-                                        marginTop: 20
-                                    }}>Back to Deck</Text>
+                                <TouchableOpacity onPress={this.backToDeck} style= {styles.inCorrect}>
+                                    <Text style={styles.inCorrectText}>Back to Deck</Text>
                                 </TouchableOpacity>
 
                             </View>

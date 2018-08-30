@@ -3,8 +3,13 @@ import {Alert, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-
 import {createDeck} from '../utils/storageAPI';
 import {connect} from 'react-redux';
 import {addDeck} from '../actions/index';
+import { black, white } from '../utils/colours'
 
 class AddDeck extends React.Component {
+
+  state = {
+    text: ''
+  }
     componentWillMount() {
         this.setState({
             text: ''
@@ -29,9 +34,9 @@ class AddDeck extends React.Component {
 
                 this.props.dispatch(addDeck(newDeck));
                 createDeck(newDeck);
+                console.log('after create new deck in api');
 
-                Alert.alert(
-                   'Deck Added',
+                Alert.alert('Done',  'Deck Added',
                     [
                         {text: 'OK', onPress: () => this.props.navigation.navigate('IndividualDeck', {
                             title: entry.text,
@@ -78,17 +83,17 @@ const style = StyleSheet.create({
         height: 44,
         padding: 8,
         borderWidth: 1,
-        borderColor: '#fff',
-        backgroundColor: '#fff',
+        borderColor: white,
+        backgroundColor: white,
         margin: 24,
     },
     submitButton: {
-        backgroundColor: '#000',
+        backgroundColor: black,
         padding: 10,
         height: 44,
     },
     submitText: {
-        color: '#fff',
+        color: white,
         fontSize: 22,
         textAlign: 'center',
     },
